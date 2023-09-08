@@ -3,8 +3,21 @@ import Button from "../Button/Button";
 import { MdOutlineMessage } from "react-icons/md";
 import { AiFillPhone } from "react-icons/ai";
 import { HiOutlineMail } from "react-icons/hi";
+import { useState } from "react";
 
 const ContactForm = () => {
+  const [name, setName] = useState(" ");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    setName(event.target[0].value);
+    setEmail(event.target[1].value);
+    setMessage(event.target[2].value);
+  };
+
   return (
     <>
       <section className={styles.container}>
@@ -21,7 +34,7 @@ const ContactForm = () => {
             text="via Form"
             icon={<HiOutlineMail fontSize={"20px"} />}
           />
-          <form action="">
+          <form onSubmit={onSubmit}>
             <div className={styles.form_controler}>
               <label htmlFor="name">Name</label>
               <input type="text" name="name" />
@@ -44,6 +57,11 @@ const ContactForm = () => {
           <img src="/images/service.png" alt="" height={"550"} />
         </div>
       </section>
+      <div className={styles.data}>
+        Name: {name} <br></br>
+        Email : {email} <br></br>
+        Message: {message}
+      </div>
     </>
   );
 };

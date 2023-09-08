@@ -17,6 +17,16 @@
   gap: 20px;
 }
 
+.data {
+  font-weight: 600;
+  margin: 30px 180px;
+  margin-bottom: 50px;
+  border: 2px solid black;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+}
+
 .contact_image {
 }
 .top_btn {
